@@ -3,4 +3,4 @@
 # deploy
 https://fly.io/
 
-# https://kyam.fly.dev/
+https://kyam.fly.dev/
