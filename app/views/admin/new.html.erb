@@ -1,0 +1,18 @@
+<div>
+  <%= form_with(model: @admin) do |form| %>
+
+    <%= form.label :name, "NAME" %>
+    <%= form.text_field :name %>
+
+    <%= form.label :email, "EMAIL" %>
+    <%= form.text_field :email %>
+
+    <%= form.label :password, "PASSWORD" %>
+    <%= form.text_field :password %>
+
+    <%= form.label :password_confirmation, "PASSWORD_CONFIRMATION" %>
+    <%= form.text_field :passsword %>
+
+    <%= form.submit "SIGN UP" %>
+  <% end %>
+</div>

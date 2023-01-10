@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
-  get '/', to: 'hello#home'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  get "/signup", to: "admin#new"
+  post "/signup", to: "admin#create"
+  get "/login", to: "admin#login"
+  post "/login", to: "admin#create"
+  resources :articles
+  resources :admin
 end

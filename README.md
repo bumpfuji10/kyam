@@ -1,6 +1,6 @@
 # README
 
-# deploy
+## Deploy
 https://fly.io/
 
 https://kyam.fly.dev/
