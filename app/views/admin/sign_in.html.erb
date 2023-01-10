@@ -1,0 +1,15 @@
+<h1>
+  <%= form_with(model: @admin) do |form| %>
+
+    <%= form.label :name, "NAME" %>
+    <%= form.text_field :name %>
+
+    <%= form.label :email, "EMAIL" %>
+    <%= form.text_field :email %>
+
+    <%= form.label :password, "PASSWORD" %>
+    <%= form.text_field :password %>
+
+    <%= form.submit "REGISTER" %>
+  <% end %>
+</h1>
