@@ -1,7 +1,11 @@
 <header>
-  <h2>kyam.site</h2>
-  <ul>
-    <li><%= link_to "Blog", "/articles" %></li>
-    <li><%= link_to "Home", "/" %></li>
-  </ul>
+  <nav>
+    <div class="nav-wrapper">
+      <%= link_to "kyam.site", "/", class: "brand-logo right" %>
+      <ul id="nav-mobile" class="left hide-on-med-and-down" >
+        <li><%= link_to "Blog", "/articles" %></li>
+        <li><%= link_to "Home", "/" %></li>
+      </ul>
+    </div>
+  </nav>
 </header>
