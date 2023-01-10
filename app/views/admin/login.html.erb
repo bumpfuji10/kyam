@@ -1,0 +1,15 @@
+<div>
+  <%= form_with(url: login_path, scope: :admin) do |form| %>
+
+    <%= form.label :name, "NAME" %>
+    <%= form.text_field :name %>
+
+    <%= form.label :email, "EMAIL" %>
+    <%= form.text_field :email %>
+
+    <%= form.label :password, "PASSWORD" %>
+    <%= form.text_field :password %>
+
+    <%= form.submit "LOG IN" %>
+  <% end %>
+</div>
