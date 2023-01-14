@@ -1,3 +1,25 @@
-<h1>Hi There👋</h1>
-<%= image_tag "/assets/me.jpg", class: "me_icon" %>
-<p>都内某所でWebエンジニアをしている若輩者です。好きな言語はRubyとPHP。好きなフレームワークはLaravelです。最近はサーバサイドをしっかり勉強しないとなーと考えています。</p>
+<div class="container">
+  <h3 class="center-align">Hi there 👋</h3>
+
+  <div class="col s12 m8 offset-m2 l6 offset-l3">
+      <div class="row valign-wrapper">
+        <div class="col s2">
+          <!--<%= image_tag "/assets/me.jpg", class: "circle responsive-img" %>-->
+          <img class="circle materialboxed responsive-img" src="/assets/me.jpg">
+        </div>
+        <div class="col s10">
+          <span class="black-text">
+            都内某所でWebエンジニアをしている若輩者です。<br />
+            好きな言語はRubyとPHP。好きなフレームワークはLaravelです。<br />
+            最近はサーバサイドをしっかり勉強しないとなーと考えています。
+          </span>
+        </div>
+      </div>
+  </div>
+</div>
+
+<script>
+  $(document).ready(function(){
+    $('.materialboxed').materialbox();
+  });
+</script>
