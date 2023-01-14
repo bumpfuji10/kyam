@@ -1,2 +1,7 @@
-<b>actiontextを使って記事を投稿する画面</b>
-<p>アクセスできるのは管理者のみ</p>
+<% if user_signed_in? %>
+  <p>現在 <%= current_user.name %>さんがログインしています</p>
+  <p> メールアドレス: <%= current_user.email %></p>
+<% else %>
+  <p>管理者ですか？ログインしてください</p>
+  <%= link_to "ログイン", new_user_session_path, class: "post", class: "btn" %>
+<% end %>
