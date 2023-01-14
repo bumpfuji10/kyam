@@ -4,6 +4,12 @@
     <ul class="left">
       <li><%= link_to "Blog", '/articles' %></li>
       <li><%= link_to "Home", "/" %></li></li>
+
+      <% if user_signed_in? %>
+        <li><%= current_user.name %>でログイン中⚡️</li>
+        <li><%= link_to "Add Blog", "/articles/new" %></li>
+        <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+      <% end %>
     </ul>
   </div>
 </nav>
