@@ -1,10 +1,24 @@
 <nav class="teal">
   <div class="nav-wrapper">
-    <%= link_to "🤖", "/", class: "brand-logo right" %>
+    <a onclick="M.toast({html: 'ゆっくりしてけ！'})" class="robot brand-logo right">🤖</a>
     <ul class="left">
-      <li><%= link_to "Blog", '/articles' %></li>
       <li><%= link_to "Home", "/" %></li></li>
-      <li><%= link_to "Add Blog", "/articles/new" %></li>
+      <li><%= link_to "記事一覧", '/articles' %></li>
+
+      <% if user_signed_in? %>
+        <li><%= link_to "記事をぶちこむ", "/articles/new" %></li>
+        <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+        <li><%= current_user.name %>でログイン中⚡️</li>
+      <% end %>
     </ul>
   </div>
 </nav>
+
+<script>
+  let nowTime = now Date();
+  let nowHour = nowTime.getHours();
+  let nowMin = nowTime.getMinutes();
+  let nowSec = nowTime.getSecond();
+  let msg = "現在時刻は、" + nowHour + nowMin + nowSec + "です";
+  document.getElementById("RealtimeClockArea").innerHTML = msg;
+</script>
