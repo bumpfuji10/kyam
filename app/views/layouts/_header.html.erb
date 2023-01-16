@@ -1,32 +1,21 @@
-<nav class="nav-extended teal">
+<ul id="dropdown1" class="dropdown-content">
+  <li><%= link_to "記事をつくる", "/articles/new" %></li>
+  <li><%= link_to "記事を編集する", "#" %></li></li>
+  <li class="divider"></li>
+  <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+</ul>
+<nav class="teal">
   <div class="nav-wrapper">
     <a onclick="M.toast({html: 'ゆっくりしてけ！'})" class="robot brand-logo right">🤖</a>
-    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-    <ul id="nav-mobile" class="left hide-on-med-and-down">
-      <li><%= link_to "Home", "/" %></li></li>
+    <ul class="left">
+      <li><%= link_to "Home", "/" %></li>
       <li><%= link_to "記事一覧", '/articles' %></li>
-
       <% if user_signed_in? %>
-        <li><%= link_to "記事をぶちこむ", "/articles/new" %></li>
-        <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
-        <li><%= current_user.name %>でログイン中⚡️</li>
+        <li><a class="dropdown-trigger" href="#!" data-target="dropdown1"><%= current_user.name + "⚡️" %><i class="material-icons right">arrow_drop_down</i></a></li>
       <% end %>
     </ul>
   </div>
 </nav>
-
-<ul class="sidenav" id="mobile-demo">
-  <li><%= link_to "Home", "/" %></li>
-  <li><%= link_to "記事一覧", '/articles' %></li>
-  <% if user_signed_in? %>
-    <li><%= link_to "記事をぶちこむ", "/articles/new" %></li>
-    <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
-    <li><%= current_user.name %>でログイン中⚡️</li>
-  <% end %>
-</ul>
-
 <script>
-  $(document).ready(function(){
-    $('.sidenav').sidenav();
-  });
+  $(".dropdown-trigger").dropdown();
 </script>
