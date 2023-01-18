@@ -1,6 +1,9 @@
 <h3 class="center-align">📖</h3>
 <div class="divider"></div>
 <div class="container">
+  <% if @articles.empty? %>
+    <h3 class="center-align"><b><%= "執筆を待て！" %></b></h3>
+  <% end %>
   <% @articles.each do |article| %>
     <b><h5><%= link_to "#{article.title}", article %></b></h5>
     <%= article.created_at.strftime("%Y/%m/%d") %>
