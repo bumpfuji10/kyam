@@ -14,5 +14,21 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
-require("trix")
+var Trix = require("trix")
 require("@rails/actiontext")
+
+Trix.config.blockAttributes.heading1 = {
+  tagName: "h5"
+}
+
+Trix.config.textAttributes.bold = {
+  tagName: "b"
+}
+
+Trix.config.blockAttributes.numberList = {
+  tagName: "ul"
+}
+
+Trix.config.blockAttributes.number = {
+  tagName: "li"
+}
