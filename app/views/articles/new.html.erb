@@ -1,2 +1,16 @@
-<p>現在 <%= current_user.name %>さんがログインしています</p>
-<p> メールアドレス: <%= current_user.email %></p>
+<h3 class="center-align">🖋</h3>
+
+<%= form_with(model: @article, local: true) do |form| %>
+
+  <div class="field">
+    <%= form.label :title, "タイトル" %>
+    <%= form.text_field :title %>
+
+    <%= form.label :content, "本文" %>
+    <%= form.rich_text_area :content %>
+
+    <div class="actions center-align">
+      <%= form.submit "POST", class: "btn" %>
+    </div>
+  </div>
+<% end %>
