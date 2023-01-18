@@ -240,6 +240,7 @@ PLATFORMS
   arm64-darwin-20
 
 DEPENDENCIES
+  actiontext
   bootsnap (>= 1.4.4)
   byebug
   capybara (>= 3.26)
