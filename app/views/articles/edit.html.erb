@@ -1,4 +1,4 @@
-<h3 class="center-align">🖋</h3>
+<h3 class="center-align">🔄</h3>
 
 <%= form_with(model: @article, local: true, scope: :article) do |form| %>
 
@@ -10,7 +10,7 @@
     <%= form.rich_text_area :content %>
 
     <div class="actions center-align">
-      <%= form.submit "POST", class: "btn" %>
+      <%= form.submit "UPDATE", class: "btn" %>
     </div>
   </div>
 <% end %>

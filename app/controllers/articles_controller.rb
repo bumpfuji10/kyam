@@ -6,16 +6,16 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    article = Article.new(article_params)
-    if article.save
-      redirect_to article
+    @article = Article.new(article_params)
+    if @article.save
+      redirect_to @article
     else
       redirect_to new_article_path
     end
   end
 
   def show
-    @article = Article.find_by(id: params[:id])
+    @article = Article.find(params[:id])
   end
 
   def index
@@ -23,13 +23,31 @@ class ArticlesController < ApplicationController
   end
 
   def edit
-    @articles = Article.find_by(id: params[:id])
+    @article = Article.find(params[:id])
+  end
+
+  def update
+    @article = Article.find(params[:id])
+    if @article.update(article_params)
+      redirect_to @article
+    else
+      redirect_to edit_article_path(article)
+    end
+  end
+
+  def destroy
+    @article = Article.find(params[:id])
+    if @article.delete
+      redirect_to articles_path
+    else
+      redirect_to @article
+    end
   end
 
   private
 
   def article_params
-    params.permit(:title, :content)
+    params.require(:article).permit(:title, :content)
   end
 
 end
