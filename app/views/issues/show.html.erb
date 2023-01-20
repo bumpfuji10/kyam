@@ -1,0 +1,13 @@
+<div class="center-align">
+  <h3><b><%= @issue.title %></b></h3>
+  <b><%= @issue.status %></b>
+  <% if current_user %>
+    <%= link_to "編集", edit_issue_path(@issue) %>
+    <%= link_to "削除", @issue, method: :delete,  data: { confirm: "本当に削除しますか？" } %>
+  <% end %>
+</div>
+
+<% if @issue.content.present?%>
+  <div class="divider"></div>
+  <p><%= @issue.content %></p>
+<% end %>
