@@ -21,29 +21,28 @@
 <div class="divider"></div>
 
 <div class="container">
-  <% if @issues.empty? %>
-    <h3 class="center-align"><b><%= "今の所改善点が見当たらないみたいです" %></b></h3>
-  <% end %>
-  <% @issues.each do |issue| %>
-    <h5>
-      <b>
-        <div class="blue-text"><%= "#{issue.title}" %></div>
-        <% if issue.status == "unstarted" %>
-          <span class="badge blue white-text"><%= "😐" +  issue.status.titleize %></span>
-        <% elsif issue.status == "in_progress" %>
-          <span class="badge orange white-text"><%= "😤" +  issue.status.titleize %></span>
-        <% else %>
-          <span class="badge green white-text"><%= "🤩" + issue.status.titleize %></span>
-        <% end %>
-      </b>
-    </h5>
 
-    <% if issue.content.present? %>
-      <%= link_to "詳細", issue %>
-    <% end %>
-    <% if current_user %>
-      <%= link_to "編集", edit_issue_path(issue) %>
-      <%= link_to "削除", issue, method: :delete,  data: { confirm: "本当に削除しますか？" } %>
-    <% end %>
+  <% if @issues.empty? %>
+    <h5 class="center-align"><b><%= "今の所改善点が見当たらないみたいです.." %></b></h5>
+  <% end %>
+
+  <% @issues.each do |issue| %>
+    <h5 class="blue-text"><b><%= "#{issue.title}" %></b></h5>
+      <% if issue.status == "unstarted" %>
+        <span class="blue white-text"><%= "😐" +  issue.status.titleize %></span>
+      <% elsif issue.status == "in_progress" %>
+        <span class="orange white-text"><%= "😤" +  issue.status.titleize %></span>
+      <% else %>
+        <span class="green white-text"><%= "🤩" + issue.status.titleize %></span>
+      <% end %>
+
+      <% if issue.content.present? %>
+        <%= link_to "詳細", issue %>
+      <% end %>
+      <% if current_user %>
+        <%= link_to "編集", edit_issue_path(issue) %>
+        <%= link_to "削除", issue, method: :delete,  data: { confirm: "本当に削除しますか？" } %>
+      <% end %>
   <% end %>
 </div>
+
