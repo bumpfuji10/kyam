@@ -28,6 +28,8 @@ gem 'actiontext'
 
 gem 'devise'
 
+gem 'net-http'
+
 gem 'materialize-sass'
 gem 'material_icons'
 # Reduces boot times through caching; required in config/boot.rb

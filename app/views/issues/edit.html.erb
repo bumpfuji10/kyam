@@ -1,0 +1,32 @@
+<h3 class="center-align">🔄</h3>
+
+<%= form_with(model: @issue, local: true, scope: :issue) do |form| %>
+
+  <div class="field">
+    <%= form.label :title, "タイトル" %>
+    <%= form.text_field :title %>
+
+    <%= form.label :content, "詳細（任意）" %>
+    <%= form.text_field :content %>
+
+    <%= form.label :status, "ステータス" %>
+    <div>
+      <label>
+        <%= form.radio_button :status, :unstarted %>
+        <%= content_tag :span, 'unstarted' %>
+      </label>
+      <label>
+        <%= form.radio_button :status, :in_progress %>
+        <%= content_tag :span, 'in progress' %>
+      </label>
+      <label>
+        <%= form.radio_button :status, :completed %>
+        <%= content_tag :span, 'completed' %>
+      </label>
+    </div>
+
+    <div class="actions center-align">
+      <%= form.submit "UPDATE", class: "btn" %>
+    </div>
+  </div>
+<% end %>

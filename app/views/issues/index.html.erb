@@ -1,0 +1,49 @@
+<div class="center-align">
+  <h3><b>🤔</b></h3>
+  <% @issues.each do |issue| %>
+    <% if issue.completed? %>
+      <b>※Completedはすでに導入済みのissueです</b>
+    <% end %>
+  <% end %>
+</div>
+<!--TODO: checkboxを使った非同期検索を実装-->
+  <!---<form action="#">
+
+  <div class="container center-align">
+    <div class="row">
+      <label><input type="checkbox" checked="checked" /><span class="issue_statuses">Unstarted</span></label>
+      <label><input type="checkbox" checked="checked" /><span class="issue_statuses">In Progress</span></label>
+      <label><input type="checkbox" checked="checked" /><span class="issue_statuses">Completed</span></label>
+    </div>
+  </div>
+  </form>--->
+
+<div class="divider"></div>
+
+<div class="container">
+  <% if @issues.empty? %>
+    <h3 class="center-align"><b><%= "実装を待て！" %></b></h3>
+  <% end %>
+  <% @issues.each do |issue| %>
+    <h5>
+      <b>
+        <div class="blue-text"><%= "#{issue.title}" %></div>
+        <% if issue.status == "unstarted" %>
+          <span class="badge blue white-text"><%= "😐" +  issue.status.titleize %></span>
+        <% elsif issue.status == "in_progress" %>
+          <span class="badge orange white-text"><%= "😤" +  issue.status.titleize %></span>
+        <% else %>
+          <span class="badge green white-text"><%= "🤩" + issue.status.titleize %></span>
+        <% end %>
+      </b>
+    </h5>
+
+    <% if issue.content.present? %>
+      <%= link_to "詳細", issue %>
+    <% end %>
+    <% if current_user %>
+      <%= link_to "編集", edit_issue_path(issue) %>
+      <%= link_to "削除", issue, method: :delete,  data: { confirm: "本当に削除しますか？" } %>
+    <% end %>
+  <% end %>
+</div>

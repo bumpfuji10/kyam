@@ -1,0 +1,20 @@
+<div class="center-align">
+  <h3><b><%= @issue.title %></b></h3>
+  <% if @issue.status == "unstarted" %>
+    <span class="blue white-text"><%= "😐" +  @issue.status.titleize %></span>
+  <% elsif @issue.status == "in_progress" %>
+    <span class="orange white-text"><%= "😤" +  @issue.status.titleize %></span>
+  <% else %>
+    <span class="green white-text"><%= "🤩" + @issue.status.titleize %></span>
+  <% end %>
+  <% if current_user %>
+    <%= link_to "編集", edit_issue_path(@issue) %>
+    <%= link_to "削除", @issue, method: :delete,  data: { confirm: "本当に削除しますか？" } %>
+  <% end %>
+</div>
+
+<% if @issue.content.present?%>
+  <div class="divider"></div>
+  <p><%= @issue.content %></p>
+<% end %>
+

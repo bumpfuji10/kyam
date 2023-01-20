@@ -1,5 +1,6 @@
 <ul id="dropdown1" class="dropdown-content">
-  <li><%= link_to "記事をつくる", "/articles/new" %></li>
+  <li><%= link_to "記事を作る", new_article_path %></li>
+  <li><%= link_to "issueを作る", new_issue_path %></li>
   <li class="divider"></li>
   <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
 </ul>
@@ -9,7 +10,7 @@
     <ul class="left">
       <li><%= link_to "Home", root_path %></li>
       <li><%= link_to "Articles", articles_path %></li>
-      <li><%= link_to "Issue", issue_path %>
+      <li><%= link_to "Issues", issues_path %>
       <% if user_signed_in? %>
         <li><a class="dropdown-trigger" href="#!" data-target="dropdown1"><%= current_user.name %><i class="material-icons right">arrow_drop_down</i></a></li>
       <% end %>
