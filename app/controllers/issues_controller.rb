@@ -15,6 +15,9 @@ class IssuesController < ApplicationController
   end
 
   def edit
+    if !user_signed_in?
+      redirect_to new_user_session_path
+    end
     @issue = Issue.find(params[:id])
   end
 
@@ -33,7 +36,6 @@ class IssuesController < ApplicationController
 
   def index
     @issues = Issue.all
-    @status = params[:status]
   end
 
   def destroy

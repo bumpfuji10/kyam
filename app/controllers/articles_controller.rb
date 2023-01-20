@@ -23,6 +23,9 @@ class ArticlesController < ApplicationController
   end
 
   def edit
+    if !user_signed_in?
+      redirect_to new_user_session_path
+    end
     @article = Article.find(params[:id])
   end
 
