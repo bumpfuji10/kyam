@@ -1,8 +1,8 @@
 class IssuesController < ApplicationController
   def new
-    if !user_signed_in?
-      redirect_to new_user_session_path
-    end
+    return if user_signed_in?
+
+    redirect_to new_user_session_path
   end
 
   def create
@@ -15,9 +15,7 @@ class IssuesController < ApplicationController
   end
 
   def edit
-    if !user_signed_in?
-      redirect_to new_user_session_path
-    end
+    redirect_to new_user_session_path unless user_signed_in?
     @issue = Issue.find(params[:id])
   end
 
@@ -40,9 +38,9 @@ class IssuesController < ApplicationController
 
   def destroy
     @issue = Issue.find(params[:id])
-    if @issue.destroy
-      redirect_to issues_path
-    end
+    return unless @issue.destroy
+
+    redirect_to issues_path
   end
 
   private

@@ -1,8 +1,6 @@
 class ArticlesController < ApplicationController
   def new
-    if !user_signed_in?
-      redirect_to new_user_session_path
-    end
+    redirect_to new_user_session_path unless user_signed_in?
   end
 
   def create
@@ -23,9 +21,7 @@ class ArticlesController < ApplicationController
   end
 
   def edit
-    if !user_signed_in?
-      redirect_to new_user_session_path
-    end
+    redirect_to new_user_session_path unless user_signed_in?
     @article = Article.find(params[:id])
   end
 
@@ -52,5 +48,4 @@ class ArticlesController < ApplicationController
   def article_params
     params.require(:article).permit(:title, :content)
   end
-
 end
