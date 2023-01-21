@@ -17,7 +17,7 @@ class ArticlesController < ApplicationController
   end
 
   def index
-    @articles = Article.all.with_rich_text_content
+    @articles = Article.all.with_rich_text_content.order(id: "DESC")
   end
 
   def edit
