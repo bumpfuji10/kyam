@@ -24,7 +24,7 @@ gem "jbuilder", "~> 2.7"
 
 gem "actiontext"
 # Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
+gem 'image_processing'
 
 gem "devise"
 
@@ -64,4 +64,7 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
 
-gem "pg", "~> 1.4"
+group :production do
+  gem "pg", "~> 1.4"
+  gem "aws-sdk-s3", require: false
+end
