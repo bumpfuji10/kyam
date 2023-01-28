@@ -24,11 +24,3 @@ Trix.config.blockAttributes.heading1 = {
 Trix.config.textAttributes.bold = {
   tagName: "b"
 }
-
-Trix.config.blockAttributes.numberList = {
-  tagName: "ul"
-}
-
-Trix.config.blockAttributes.number = {
-  tagName: "li"
-}
