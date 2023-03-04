@@ -297,6 +297,7 @@ DEPENDENCIES
   listen (~> 3.3)
   material_icons
   materialize-sass
+  mini_magick
   net-http
   pg (~> 1.4)
   puma (~> 5.0)

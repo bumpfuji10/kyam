@@ -26,6 +26,8 @@ gem "actiontext"
 # Use Active Storage variant
 gem 'image_processing'
 
+gem 'mini_magick'
+
 gem "devise"
 
 gem "net-http"
