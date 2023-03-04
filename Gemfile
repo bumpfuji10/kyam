@@ -70,3 +70,5 @@ group :production do
   gem "pg", "~> 1.4"
   gem "aws-sdk-s3", require: false
 end
+
+gem "webrick", "~> 1.8"
