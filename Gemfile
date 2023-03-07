@@ -26,7 +26,8 @@ gem "actiontext"
 gem 'image_processing'
 
 # Use sqlite3 as the database for Active Record
-gem "sqlite3", "~> 1.4"
+# gem "sqlite3", "~> 1.4"
+gem 'mysql2'
 
 gem 'mini_magick'
 
