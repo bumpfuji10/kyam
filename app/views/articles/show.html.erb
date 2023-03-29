@@ -9,3 +9,6 @@
 <div class="divider"></div>
 
 <p><%= @article.content %></p>
+<% if @article.images.attached? %>
+  <%= image_tag @article.image.variant(:display) %>
+<% end %>
