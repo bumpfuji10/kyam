@@ -33,4 +33,12 @@
       max-width: 100% !important;
     }
   }
+
+  pre.hljs {
+    background: #282828
+  }
+}
+
+trix-editor {
+  min-height: 250px;
 }

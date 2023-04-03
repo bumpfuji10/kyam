@@ -9,6 +9,7 @@ import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import 'materialize-css/dist/js/materialize'
 import "jquery"
+import 'highlight'
 
 Rails.start()
 Turbolinks.start()
