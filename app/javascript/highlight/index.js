@@ -1,5 +1,5 @@
 import hljs from 'highlight.js'
-import 'highlight.js/styles/github.css';
+import 'highlight.js/styles/monokai-sublime';
 
 import ruby from 'highlight.js/lib/languages/ruby'
 hljs.registerLanguage('ruby', ruby);
@@ -14,7 +14,7 @@ import javascript from 'highlight.js/lib/languages/javascript'
 hljs.registerLanguage('javascript', javascript);
 
 hljs.configure({ languages: ['ruby', 'bash', 'javascript'] })
-document.addEventListener('turbolinks:load', (event) => {
+document.addEventListener("turbolinks:load", function() {
   document.querySelectorAll('pre').forEach((block) => {
     hljs.highlightBlock(block)
   })
