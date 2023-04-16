@@ -1,5 +1,5 @@
 import hljs from 'highlight.js'
-import 'highlight.js/styles/monokai-sublime.css';
+import 'highlight.js/styles/github.css';
 
 import ruby from 'highlight.js/lib/languages/ruby'
 hljs.registerLanguage('ruby', ruby);
