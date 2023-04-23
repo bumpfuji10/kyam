@@ -4,6 +4,7 @@
 // that code so it'll be compiled.
 
 import Rails from "@rails/ujs"
+import "../../javascript/packs/actiontext_controller";
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
@@ -15,13 +16,3 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
-var Trix = require("trix")
-require("@rails/actiontext")
-
-Trix.config.blockAttributes.heading1 = {
-  tagName: "h5"
-}
-
-Trix.config.textAttributes.bold = {
-  tagName: "b"
-}
