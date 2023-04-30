@@ -10,7 +10,31 @@
     <%= form.rich_text_area :content %>
 
     <div class="actions center-align">
-      <%= form.submit "POST", class: "btn" %>
+      <%= form.submit "投稿する", class: "btn" %>
+
+  <!-- モーダルトリガー -->
+    <div class="waves-effect waves-light btn modal-trigger" href="#modal1">予約投稿する</div>
+
+  <!-- モーダルの中身 -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>公開する日時を選択してください</h4>
+    </div>
+    <div class="picker-area">
+      <input type="datetime-local" class="calender center-align">
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-green btn">選択した日時で公開する</a>
+    </div>
+  </div>
+
     </div>
   </div>
 <% end %>
+
+<script>
+  // モーダルのトリガー
+  $(document).ready(function(){
+    $('.modal').modal();
+  });
+</script>
