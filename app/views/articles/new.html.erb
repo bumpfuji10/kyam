@@ -14,17 +14,18 @@
 
     <div class="waves-effect waves-light btn modal-trigger" href="#modal1">予約投稿する</div>
 
-  <div id="modal1" class="modal">
-    <div class="modal-content">
-      <h4>公開する日時を選択してください</h4>
+    <div id="modal1" class="modal">
+      <h4 class="modal-content">公開する日時を選択してください</h4>
+
+      <div class="picker-area">
+        <%= form.datetime_field :published_at, class: "picker-area datetime-local center-align"%>
+      </div>
+
+      <div class="modal-footer">
+        <%= form.submit "選択した日時で公開する", class: "modal-close waves-effect waves-green btn" %>
+      </div>
+
     </div>
-    <div class="picker-area">
-      <input type="datetime-local" class="calender center-align">
-    </div>
-    <div class="modal-footer">
-      <a href="#!" class="modal-close waves-effect waves-green btn">選択した日時で公開する</a>
-    </div>
-  </div>
 
     </div>
   </div>
