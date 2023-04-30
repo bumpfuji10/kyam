@@ -5,7 +5,7 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new(article_params)
-    # TODO: published_atが現在時刻よりも前であればsaveさせない
+    if params[:post_reservation_date].nil?
     if @article.save
       redirect_to @article
     else

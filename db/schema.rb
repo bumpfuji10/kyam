@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 2023_04_30_072148) do
     t.text "content_html"
     t.datetime "published_at"
     t.datetime "post_reservation_date"
-    t.boolean "is_published", default: false, null: false
+    t.boolean "is_published", default: true, null: false
   end
 
   create_table "issues", force: :cascade do |t|
