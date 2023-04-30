@@ -5,11 +5,13 @@
     <h3 class="center-align"><b><%= "執筆を待て！" %></b></h3>
   <% end %>
   <% @articles.each do |article| %>
-    <h5><b><%= link_to "#{article.title}", article %></b></h5>
-    <%= article.created_at.strftime('%Y/%m/%d %H:%M') %>
-    <% if current_user %>
-      <%= link_to "編集", edit_article_path(article) %>
-      <%= link_to "削除", article, method: :delete,  data: { confirm: "本当に削除しますか？" } %>
+    <% if article.published? %>
+      <h5><b><%= link_to "#{article.title}", article %></b></h5>
+      <%= article.created_at.strftime('%Y/%m/%d %H:%M') %>
+      <% if current_user %>
+        <%= link_to "編集", edit_article_path(article) %>
+        <%= link_to "削除", article, method: :delete,  data: { confirm: "本当に削除しますか？" } %>
+      <% end %>
     <% end %>
   <% end %>
 </div>
