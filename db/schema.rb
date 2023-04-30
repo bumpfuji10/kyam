@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_04_30_071405) do
+ActiveRecord::Schema.define(version: 2023_04_30_072148) do
 
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 2023_04_30_071405) do
     t.text "content_html"
     t.datetime "published_at"
     t.datetime "post_reservation_date"
+    t.boolean "is_published"
   end
 
   create_table "issues", force: :cascade do |t|
