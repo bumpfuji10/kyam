@@ -3,6 +3,7 @@ class ArticlesController < ApplicationController
     redirect_to new_user_session_path unless user_signed_in?
   end
 
+  # 下書き機能
   def create
     @article = Article.new(article_params)
     if @article.save
