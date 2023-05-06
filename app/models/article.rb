@@ -4,4 +4,7 @@ class Article < ApplicationRecord
   has_many_attached :images do |attachable|
     attachable.variant :display, resize_to_limit: [500, 500]
   end
+
+  scope :drafts, -> { where is_draft: true }
+  scope :published, -> { where is_published: true }
 end
