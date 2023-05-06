@@ -1,6 +1,6 @@
 <div class="center-align">
   <h3><b><%= @article.title %></b></h3>
-  <%= @article.created_at.strftime('%Y/%m/%d %H:%M') %>
+  <%= @article.published_at.strftime('%Y/%m/%d %H:%M') %>
   <% if current_user %>
     <%= link_to "編集", edit_article_path(@article) %>
     <%= link_to "削除", @article, method: :delete, data: { confirm: "本当に削除しますか?" } %>

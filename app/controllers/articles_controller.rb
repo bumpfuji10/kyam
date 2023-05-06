@@ -11,6 +11,10 @@ class ArticlesController < ApplicationController
       @article.is_published = false
     end
 
+    if params[:post]
+      @article.published_at = Time.now
+    end
+
     if @article.save
       redirect_to @article
     else
