@@ -6,6 +6,12 @@ class ArticlesController < ApplicationController
   # 下書き機能
   def create
     @article = Article.new(article_params)
+
+    if params[:draft]
+      @article.is_draft = true
+      @article.is_published = false
+    end
+
     if @article.save
       redirect_to @article
     else
