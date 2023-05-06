@@ -3,7 +3,6 @@ class ArticlesController < ApplicationController
     redirect_to new_user_session_path unless user_signed_in?
   end
 
-  # 下書き機能
   def create
     @article = Article.new(article_params)
 
@@ -23,6 +22,10 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
   end
 
+  def draft
+    @articles = Article.where(is_draft: true)
+  end
+
   def index
     @articles = Article.all.with_rich_text_content.order(id: "DESC")
   end
@@ -36,9 +39,18 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
 
     # TODO: 公開中の記事はDRAFTボタンは表示させない
-    return @article.is_draft = true if params[:draft]
+    if params[:draft]
+      @article.is_draft = true
+      @article.is_published = false
+    end
+
+    if params[:publish]
+      @article.is_draft = false
+      @article.is_published = true
+    end
 
     if @article.update(article_params)
+      @article.is_draft = false
       redirect_to @article
     else
       redirect_to edit_article_path(article)
