@@ -10,7 +10,14 @@
     <%= form.rich_text_area :content %>
 
     <div class="actions center-align">
+    <% if @article.is_published == true && @article.is_draft == false %>
       <%= form.submit "UPDATE", class: "btn" %>
+    <% elsif @article.is_published == false && @article.is_draft == true %>
+      <%= form.submit "DRAFT", class: "btn", name: "draft" %>
+      <%= form.submit "PUBLISH", class: "btn", name: "publish" %>
+    <% else %>
+      <%= form.submit "UPDATE", class: "btn" %>
+    <% end %>
     </div>
   </div>
 <% end %>
