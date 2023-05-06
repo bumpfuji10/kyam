@@ -34,6 +34,10 @@ class ArticlesController < ApplicationController
 
   def update
     @article = Article.find(params[:id])
+
+    # TODO: 公開中の記事はDRAFTボタンは表示させない
+    return @article.is_draft = true if params[:draft]
+
     if @article.update(article_params)
       redirect_to @article
     else
