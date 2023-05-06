@@ -1,7 +1,7 @@
 <h3 class="center-align">📖</h3>
 <div class="divider"></div>
 <div class="container">
-  <% if @articles.empty? %>
+  <% if @articles.nil? %>
     <h3 class="center-align"><b><%= "執筆を待て！" %></b></h3>
   <% end %>
   <% @articles.each do |article| %>
