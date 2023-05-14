@@ -10,7 +10,8 @@
     <%= form.rich_text_area :content %>
 
     <div class="actions center-align">
-      <%= form.submit "投稿する", class: "btn" %>
+      <%= form.submit "投稿する", class: "btn", nane: "post" %>
+      <%= form.submit "DRAFT", class: "btn", name: "draft" %>
 
     <div class="waves-effect waves-light btn modal-trigger" href="#modal1">予約投稿する</div>
 

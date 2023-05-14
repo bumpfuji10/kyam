@@ -1,17 +1,19 @@
 <h3 class="center-align">📖</h3>
 <div class="divider"></div>
 <div class="container">
-  <% if @articles.empty? %>
+  <% if @articles.nil? %>
     <h3 class="center-align"><b><%= "執筆を待て！" %></b></h3>
   <% end %>
   <% @articles.each do |article| %>
     <% if article.published? %>
+      <% if article.is_draft != true %>
       <h5><b><%= link_to "#{article.title}", article %></b></h5>
-      <%= article.created_at.strftime('%Y/%m/%d %H:%M') %>
-      <% if current_user %>
-        <%= link_to "編集", edit_article_path(article) %>
-        <%= link_to "削除", article, method: :delete,  data: { confirm: "本当に削除しますか？" } %>
+        <%= article.created_at.strftime('%Y/%m/%d %H:%M') %>
+        <% if current_user %>
+          <%= link_to "編集", edit_article_path(article) %>
+          <%= link_to "削除", article, method: :delete,  data: { confirm: "本当に削除しますか？" } %>
+        <% end %>
       <% end %>
-    <% end %>
+  <% end %>
   <% end %>
 </div>

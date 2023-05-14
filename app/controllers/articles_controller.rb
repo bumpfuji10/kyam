@@ -9,6 +9,12 @@ class ArticlesController < ApplicationController
     # TODO: post_reservation_dateが現在時刻よりも前であればsaveさせない
     @article.is_published = false if @article.post_reservation_date.present?
 
+
+    if params[:draft]
+      @article.is_draft = true
+      @article.is_published = false
+    end
+
     if @article.save
       redirect_to @article
     else
@@ -18,6 +24,10 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.find(params[:id])
+  end
+
+  def draft
+    @articles = Article.where(is_draft: true)
   end
 
   def index
@@ -31,7 +41,20 @@ class ArticlesController < ApplicationController
 
   def update
     @article = Article.find(params[:id])
+
+    # TODO: 公開中の記事はDRAFTボタンは表示させない
+    if params[:draft]
+      @article.is_draft = true
+      @article.is_published = false
+    end
+
+    if params[:publish]
+      @article.is_draft = false
+      @article.is_published = true
+    end
+
     if @article.update(article_params)
+      @article.is_draft = false
       redirect_to @article
     else
       redirect_to edit_article_path(article)
@@ -50,6 +73,6 @@ class ArticlesController < ApplicationController
   private
 
   def article_params
-    params.require(:article).permit(:title, :content, :image, :post_reservation_date, :is_published)
+    params.require(:article).permit(:title, :content, :image, :is_draft, :is_published, :post_reservation_date, :published_at)
   end
 end
