@@ -9,7 +9,6 @@ class ArticlesController < ApplicationController
     # TODO: post_reservation_dateが現在時刻よりも前であればsaveさせない
     @article.is_published = false if @article.post_reservation_date.present?
 
-
     if params[:draft]
       @article.is_draft = true
       @article.is_published = false
