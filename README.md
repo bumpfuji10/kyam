@@ -10,4 +10,7 @@ This is a blog to output daily discoveries, learned skills and knowledge 📖
 * [MaterialUI](https://materializecss.com/)
 ## Deployment
 * https://fly.io/
-* https://kyam.fly.dev/
+* ~~https://kyam.fly.dev/~~
+Sorry! Already closed!
+
+
