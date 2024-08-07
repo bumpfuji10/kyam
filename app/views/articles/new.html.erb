@@ -10,8 +10,30 @@
     <%= form.rich_text_area :content %>
 
     <div class="actions center-align">
-      <%= form.submit "POST", class: "btn", nane: "post" %>
-      <%= form.submit "DRAFT", class: "btn", name: "draft" %>
+      <%= form.submit "投稿する", class: "btn", nane: "post" %>
+      <%= form.submit "下書き保存", class: "btn", name: "draft" %>
+
+    <div class="waves-effect waves-light btn modal-trigger" href="#modal1">予約投稿する</div>
+
+    <div id="modal1" class="modal">
+      <h4 class="modal-content">公開する日時を選択してください</h4>
+
+      <div class="picker-area">
+        <%= form.datetime_field :post_reservation_date, class: "picker-area datetime-local center-align"%>
+      </div>
+
+      <div class="modal-footer">
+        <%= form.submit "選択した日時で公開する", class: "modal-close waves-effect waves-green btn" %>
+      </div>
+
+    </div>
+
     </div>
   </div>
 <% end %>
+
+<script>
+  $(document).ready(function(){
+    $('.modal').modal();
+  });
+</script>

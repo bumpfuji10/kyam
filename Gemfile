@@ -20,15 +20,14 @@ gem "jbuilder", "~> 2.7"
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-
 gem "actiontext"
 # Use Active Storage variant
-gem 'image_processing'
+gem "image_processing"
 
 # Use sqlite3 as the database for Active Record
 gem "sqlite3", "~> 1.4"
 
-gem 'mini_magick'
+gem "mini_magick"
 
 gem "devise"
 
@@ -55,8 +54,6 @@ group :development do
   gem "rack-mini-profiler", "~> 2.0"
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem "spring"
-
-
 end
 
 group :test do
@@ -71,10 +68,10 @@ end
 gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
 
 group :production do
-  gem "pg", "~> 1.4"
   gem "aws-sdk-s3", require: false
+  gem "pg", "~> 1.4"
 end
 
 gem "webrick", "~> 1.8"
 
-gem "dockerfile-rails", ">= 1.2", :group => :development
+gem "dockerfile-rails", ">= 1.2", group: :development

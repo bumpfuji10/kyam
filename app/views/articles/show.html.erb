@@ -4,6 +4,9 @@
   <% if current_user %>
     <%= link_to "編集", edit_article_path(@article) %>
     <%= link_to "削除", @article, method: :delete, data: { confirm: "本当に削除しますか?" } %>
+    <% if @article.post_reservation_date.present? %>
+      <%= "現在未公開中です" %>
+    <% end %>
     <% if @article.is_draft == true %>
       <%= "この記事は下書き保存中です" %>
     <% end %>
